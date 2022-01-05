@@ -4,47 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Story Writer</title>
-    <script>
-        function loadStory(){
-            var storyName = document.getElementById("name_input").value;
-            var storyHTML = localStorage.getItem(storyName);
-            document.getElementById("story_editor").value = storyHTML;
-        }
-        function saveStory(){
-            var storyName = document.getElementById("name_input").value;
-            var storyHTML = document.getElementById("story_editor").value;
-            localStorage.setItem(storyName, storyHTML);
-        }
-        function displayStory(){
-            var storyHTML = document.getElementById("story_editor").value;
-            document.getElementById("story_display").innerHTML = storyHTML;
-        }
-    </script>
-    <style>
-        h1,h3{
-            text-align: center;
-        }
-        a{
-            text-decoration: none;
-        }
-        textarea{
-            width: 800px;
-            height: 250px;
-            background-color: lightyellow;
-        }
-    </style>
+    <title>Week 1</title>
 </head>
 <body>
-    <h1>Story Editor</h1>
-    <h3><a href="../index.html">Back to assignmets</a></h3>
-    Story Name:<input id="name_input"></input>
-    <section>
-        <button onclick="loadStory()">Find and Edit It</button>
-        <button onclick="saveStory()">Save It</button>
-        <button onclick="displayStory()">Display It</button>
-    </section>
-    <textarea id="story_editor" placeholder="Write a story"></textarea>
-    <section id="story_display"></section>
+    <h1>Week 1</h1>
+    <h4><a href="../index.html">Back to assignments</a></h4>
+    <h4><a href="./story_editor.html">Exerise</a></h4>
+    <h4><a href="./notes.html">Notes</a></h4>
 </body>
 </html>
