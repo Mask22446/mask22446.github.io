@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>WDD 330 | Week 02 | Team Activity</title>
+    <link rel="stylesheet" href="./team.css">
+  </head>
+  <body>
+    <!--Requirement1-->
+    <h2>Requirement 1</h2>
+    <div class="req1">
+      <input id="req1Input" type="text" />
+      <button id="req1Button" onclick="reqOne()">Submit</button>
+      <div id="req1Output"></div>
+    </div>
+    <!--Requirement2-->
+    <h2>Requirement 2</h2>
+    <div class="req2">
+      <input id="req2Input" type="text" />
+      <button id="req2Button" onclick="reqTwo()">Sum</button>
+      <div id="req2Output"></div>
+    </div>
+    <!-- Requirement 3 -->
+    <h2>Requirement 3</h2>
+    <div class="req3">
+      <input id="req3Number1" placeholder="enter a number" type="number" />
+      <input
+        id="req3Number2"
+        placeholder="enter a number"
+        type="number"
+      />
+      <button id="req3Button" onclick="add()">+</button>
+      <div id="req3Output"></div>
+    </div>
+
+    <h2>Stretch</h2>
+    <div class="stretch">
+      <input
+        id="stretchNumber1"
+        placeholder="enter a number"
+        type="number"
+      />
+      <input id="stretchNumber2" placeholder="enter a number" type="number" />
+      <button id="stretchAdd" onclick="performOperation(add2)">+</button>
+      <button id="stretchSub" onclick="performOperation(sub2)">-</button>
+      <button id="stretchMult" onclick="performOperation(mult2)">*</button>
+      <div id="stretchOutput"></div>
+    </div>
+    <script src="./team.js"></script>
+    </body>
+</html>

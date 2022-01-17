@@ -1,0 +1,24 @@
+body{
+  margin: 0px;
+  padding: 0px;
+  background-color: #c5e3f6;
+}
+
+h2{
+  text-align: center;
+}
+#req1Input, #req2Input, #req3Number1, #req3Number2{
+  dosplay:block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.req1,.req2, .req3, .stretch{
+  text-align: center;
+}
+input{
+  background-color: #e8ffe8;
+}
+
+button{
+  background-color: #46c3db;
+}
