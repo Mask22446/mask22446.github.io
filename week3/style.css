@@ -1,0 +1,17 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: #cefff1;
+}
+
+.head,.links{
+    text-align: center;
+}
+
+li{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+}
