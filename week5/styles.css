@@ -1,0 +1,23 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: bisque;
+}
+
+h1{
+    text-align: center;
+}
+section{
+    text-align: center;
+}
+
+ul{
+    text-align: center;
+}
+li{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+}
