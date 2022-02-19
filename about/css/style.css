@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@1,100&family=Rowdies:wght@300&display=swap');
+:root{
+    --heading-font:'Rowdies', cursive;
+    --paragraph-font:'Barlow', sans-serif;
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: #e8ffe8;
+}
+li{
+    display: inline;
+    margin: 3px;
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: #f4f3cd;
+    font-family: var(--paragraph-font);
+}
+nav{
+    text-align: center;
+    border: 1px solid black;
+    background-color: black;
+}
+h2{
+    text-align: center;
+    font-family: var(--heading-font);
+}
+.img{
+    text-align: center;
+}
+#imgMe{
+    width: 300px;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+p a {
+    text-decoration: none;
+    color: black;
+    font-family: var(--paragraph-font);
+}
+.aboutMe{
+    font-size: 19px;
+    text-align: center;
+}
+p{
+    font-family: var(--paragraph-font);
+}

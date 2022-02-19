@@ -5,88 +5,31 @@ body{
 }
 .welcome{
     text-align: center;
+    margin: 10px;
+    padding: 5px;
 }
 #list{
     text-align: center;
 }
-
 a{
-    text-decoration: none;
-    color:#582233;
-    font-size: 20px;
+	text-decoration: none;
+	font-size: 20px;
+	color: black;
 }
-
 li{
     list-style-type: none;
 }
-.nav{
-    text-align: center;
-    display: block;
-    background-color: #21e6c1;
-    border: 1px solid black;
-    width: 1300px;
-    margin-left: auto;
-    margin-right: auto;
+
+.portfolio {
+	text-align: center;
 }
 
-nav {
-	margin: 50px 0;
-	background-color: #E64A19;
+.nav a{
+    float: none;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    background-color: black;
+    color: #e1e3a9;
+    
 }
-
-nav ol {
-	padding: 0;
-  margin: 0;
-	list-style: none;
-	position: relative;
-	}
-	
-nav ol li {
-	display:inline-block;
-	background-color: #E64A19;
-	}
-
-nav a {
-	display:block;
-	padding:0 10px;	
-	color:#FFF;
-	font-size:20px;
-	line-height: 60px;
-	text-decoration:none;
-}
-
-nav a:hover { 
-	background-color: #000000; 
-}
-
-/* Hide Dropdowns by Default */
-nav ol ol {
-	display: none;
-	position: absolute; 
-	top: 60px; /* the height of the main nav */
-}
-	
-/* Display Dropdowns on Hover */
-nav ol li:hover > ol {
-	display:inherit;
-}
-	
-/* Fisrt Tier Dropdown */
-nav ol ol li {
-	width:170px;
-	float:none;
-	display:list-item;
-	position: relative;
-}
-
-/* Second, Third and more Tiers	*/
-nav ol ol ol li {
-	position: relative;
-	top:-60px; 
-	left:170px;
-}
-
-	
-/* Change this in order to change the Dropdown symbol */
-li > a:after { content:  ' +'; }
-li > a:only-child:after { content: ''; }

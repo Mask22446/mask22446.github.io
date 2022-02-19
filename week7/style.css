@@ -1,0 +1,27 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: blanchedalmond;
+}
+
+.head{
+    text-align: center;
+}
+li{
+    list-style: none;
+}
+ul{
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+
+h1{
+    text-align: center;
+}
+section{
+    text-align: center;
+}
