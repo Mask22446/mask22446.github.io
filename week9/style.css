@@ -1,0 +1,27 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: antiquewhite;
+}
+
+.head{
+    text-align: center;
+    font-style: italic;
+    font-size: 30px;
+}
+
+ul{
+    text-align: center;
+}
+li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-style: oblique;
+}
+section{
+    text-align: center;
+}
