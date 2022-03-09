@@ -1,0 +1,38 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: #dee1ec;
+}
+.htwo{
+    text-align: center;
+    color: bisque;
+    background-color: #575151;
+    margin-top: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.list{
+    text-align: center;
+}
+
+li{
+    list-style-type: none;
+    content: inherit;
+}
+
+a{
+    color: black;
+    font-size: 15px;
+}
+
+a:hover{
+    color: #d72323;
+    font-size: 18px;
+}
+h1{
+    text-align: center;
+}
+section{
+    text-align: center;
+}

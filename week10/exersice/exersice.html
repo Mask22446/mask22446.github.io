@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mileage Calculator</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <style>
+            body{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+            header{background: black; color: white; margin: 0px; padding: 10px;}
+            main {display: flex; flex-direction: column; width:60%; margin: auto; background: rgb(233, 231, 231); border: 5px solid black; border-top: 0px; border-radius: 0px 0px 10px 10px; padding-bottom: 15px;}
+            h1, h2, div#response {text-align: center;}
+            p {font-weight: 700; margin-bottom: 5px;}
+            input {text-align: left; border-width: 2px; font-weight: 600; width: 90%;}
+            div#query{margin: auto;}
+            button#send-request {padding: 5px; width: 100%; border: 1px ridge black;  margin-top: 15px; font-weight: 700;}
+            @media only screen and (min-width: 60rem) {
+                main{width: 40%;}
+                input{width: 100%;}
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <!--Header Content Here-->
+            <h1>Mileage Calculator</h1>
+        </header>
+
+        <main>
+            <h2>Fill in all fields to calculate the distance</h2>
+            <div id="query">
+
+                <p>Start City:</p>
+                <input type="text" name="startCity" placeholder="e.g Austin" onfocus="this.style.textAlign = 'right', this.placeholder = ''" 
+                onblur="validate(this)" required>
+
+                <p>Start State:</p>
+                <input type="text" name="startState" placeholder="TX" onfocus="this.style.textAlign = 'right', this.placeholder = ''"
+                onblur="validate(this)" pattern="[a-z,A-Z]{2}" required>
+
+                <p>End City:</p>
+                <input type="text" name="endCity" placeholder="Logan" onfocus="this.style.textAlign = 'right', this.placeholder = ''"
+                onblur="validate(this)" required>
+
+                <p>End State:</p>
+                <input type="text" name="endState" placeholder="UT" onfocus="this.style.textAlign = 'right', this.placeholder = ''"
+                onblur="validate(this)" pattern="[a-z,A-Z]{2}" required><br><br>
+
+                <button type="button" id="send-request" onclick="getMileage()" disabled>Calculate</button>
+            </div>
+            <hr>
+            <div id="response"><!-- Mileage calculation response data goes here--></div>
+        </main>      
+
+        <script>
+            let startCity;
+            let startState;
+            let endCity;
+            let endState;
+
+            let gate1 = false;
+            let gate2 = false;
+            let gate3 = false;
+            let gate4 = false;
+
+            let key = false;
+
+            //all gates must be opened before key unlocks calculate button
+
+
+            //allow calculate button to be pressed and data submitted
+            function getKey() {
+
+            if(gate1 == true && gate2 == true && gate3 == true && gate4 == true) {
+                key = true;
+            }
+
+            if(key == true) {
+                document.getElementById("send-request").disabled = false;
+                document.getElementById("send-request").style.background = "white";
+                document.getElementById("send-request").style.border = "2px ridge black";
+                document.getElementById("send-request").style.borderRadius = "5px"; 
+            }
+
+            }
+
+
+            function validate(input) {
+
+            let name = input.name;
+            console.log(input.value, typeof input.value);
+
+            if(input.checkValidity()) {
+                input.style.background = "white";
+                input.style.color = "black";
+
+                if(name == "startCity") {
+                startCity = input.value;
+                gate1 = true;
+                }
+                else if(name == "startState") {
+                startState = input.value;
+                gate2 = true;
+                }
+                else if(name == "endCity") {
+                endCity = input.value;
+                gate3 = true;
+                }
+                else if(name == "endState") {
+                endState = input.value;
+                gate4 = true;
+                }
+                
+            }
+            else{
+                input.style.background = 'rgba(99,0,0,.7)';
+                input.style.color = 'white';
+            }
+            getKey();
+            //console.log(gate1, gate2, gate3, gate4);
+            }
+
+
+            async function getMileage() {
+
+            
+            let requestURL = 'http://localhost:9999/cgi-bin/cs213/mileageAjaxJSON?startCity='+ startCity + '&startState=' + startState +'&endCity=' + endCity +'&endState=' + endState;
+            console.log(requestURL);
+            let container = document.getElementById('response');
+            container.innerHTML = '';
+            console.log('sending request call');
+            let response = await fetch(requestURL);
+            if(response.status == 404) {
+                container.appendChild(((document.createElement('h2')).id = "error"));
+                document.getElementById('error').style.color = "red";
+                document.getElementById('error').innerHTML = "Error in Processing Request";
+            }
+            else if (response.ok) {
+                let jsonObject = await response.json();
+                //console.table(jsonObject);
+
+                let h3 = document.createElement('h3');
+
+                //console.log(jsonObject.trip['miles']);
+                
+
+                h3.textContent = 'The distance from ' + jsonObject.trip['startcity'] + ', ' + jsonObject.trip['startstate'] + ' to ' + jsonObject.trip['endcity'] + ', ' + jsonObject.trip['endstate'] + ' is ' + jsonObject.trip['miles'] + ' miles.'; 
+                
+                container.appendChild(h3);
+
+            }
+
+            }
+        </script>
+    </body>
+</html>
