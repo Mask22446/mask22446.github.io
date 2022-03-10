@@ -14,6 +14,7 @@
             input {text-align: left; border-width: 2px; font-weight: 600; width: 90%;}
             div#query{margin: auto;}
             button#send-request {padding: 5px; width: 100%; border: 1px ridge black;  margin-top: 15px; font-weight: 700;}
+            div{ text-align: center;}
             @media only screen and (min-width: 60rem) {
                 main{width: 40%;}
                 input{width: 100%;}
@@ -50,6 +51,7 @@
             </div>
             <hr>
             <div id="response"><!-- Mileage calculation response data goes here--></div>
+            <div>I did't finish because I didn't get why I have CORS request error</div>
         </main>      
 
         <script>
@@ -124,33 +126,33 @@
             async function getMileage() {
 
             
-            let requestURL = 'http://localhost:9999/cgi-bin/cs213/mileageAjaxJSON?startCity='+ startCity + '&startState=' + startState +'&endCity=' + endCity +'&endState=' + endState;
-            console.log(requestURL);
-            let container = document.getElementById('response');
-            container.innerHTML = '';
-            console.log('sending request call');
-            let response = await fetch(requestURL);
-            if(response.status == 404) {
-                container.appendChild(((document.createElement('h2')).id = "error"));
-                document.getElementById('error').style.color = "red";
-                document.getElementById('error').innerHTML = "Error in Processing Request";
-            }
-            else if (response.ok) {
-                let jsonObject = await response.json();
-                //console.table(jsonObject);
+                let requestURL = 'http://localhost:9999/cgi-bin/cs213/mileageAjaxJSON?startCity='+ startCity + '&startState=' + startState +'&endCity=' + endCity +'&endState=' + endState;
+                console.log(requestURL);
+                let container = document.getElementById('response');
+                container.innerHTML = '';
+                console.log('sending request call');
+                let response = await fetch(requestURL);
+                if(response.status == 404) {
+                    container.appendChild(((document.createElement('h2')).id = "error"));
+                    document.getElementById('error').style.color = "red";
+                    document.getElementById('error').innerHTML = "Error in Processing Request";
+                }
+                else if (response.ok) {
+                    let jsonObject = await response.json();
+                    //console.table(jsonObject);
 
-                let h3 = document.createElement('h3');
+                    let h3 = document.createElement('h3');
 
-                //console.log(jsonObject.trip['miles']);
-                
+                    //console.log(jsonObject.trip['miles']);
+                    
 
-                h3.textContent = 'The distance from ' + jsonObject.trip['startcity'] + ', ' + jsonObject.trip['startstate'] + ' to ' + jsonObject.trip['endcity'] + ', ' + jsonObject.trip['endstate'] + ' is ' + jsonObject.trip['miles'] + ' miles.'; 
-                
-                container.appendChild(h3);
+                    h3.textContent = 'The distance from ' + jsonObject.trip['startcity'] + ', ' + jsonObject.trip['startstate'] + ' to ' + jsonObject.trip['endcity'] + ', ' + jsonObject.trip['endstate'] + ' is ' + jsonObject.trip['miles'] + ' miles.'; 
+                    
+                    container.appendChild(h3);
 
-            }
+                }
 
-            }
+        }
         </script>
     </body>
 </html>
