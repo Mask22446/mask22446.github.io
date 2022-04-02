@@ -36,3 +36,13 @@ h1{
 section{
     text-align: center;
 }
+
+#mainNav{
+    display: inline-flex;
+}
+li{
+    padding: 4px;
+}
+nav{
+    text-align: center;
+}
